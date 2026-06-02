@@ -1,5 +1,5 @@
 // App Controller for FALO AI Capability Runtime Dashboard
-// Copyright (c) FALO/TAAT x Force Cheng 2026/6/2. All rights reserved. (暗碼)
+// Copyright (c) FALO/TAAT x Force Cheng 2026/6/2. All rights reserved.
 
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 1. Navigation Panel Controller
 function initNavigation() {
+  // Copyright (c) FALO/TAAT x Force Cheng 2026/6/2. All rights reserved.
   const navItems = document.querySelectorAll('.nav-item');
   const sections = document.querySelectorAll('.content-section');
 
@@ -63,6 +64,7 @@ const smeSlides = [
 let currentSlideIdx = 0;
 
 function initSMESlider() {
+  // Copyright (c) FALO/TAAT x Force Cheng 2026/6/2. All rights reserved.
   const prevBtn = document.getElementById('slide-prev');
   const nextBtn = document.getElementById('slide-next');
   const progressBar = document.getElementById('slide-progress-bar');
@@ -467,6 +469,7 @@ function initBMCHighlights() {
 
 // 7. Light / Dark Theme Toggle Controller (With localStorage Persistence)
 function initThemeToggle() {
+  // Copyright (c) FALO/TAAT x Force Cheng 2026/6/2. All rights reserved.
   const toggleBtn = document.getElementById('theme-toggle');
   const toggleIcon = document.getElementById('theme-toggle-icon');
   const toggleText = document.getElementById('theme-toggle-text');
