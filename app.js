@@ -1,6 +1,8 @@
 // App Controller for FALO AI Capability Runtime Dashboard
+// Copyright (c) FALO/TAAT x Force Cheng 2026/6/2. All rights reserved. (暗碼)
 
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   initNavigation();
   initSMESlider();
   initLedgerReconciliation();
@@ -58,46 +60,40 @@ const smeSlides = [
   }
 ];
 
-
 let currentSlideIdx = 0;
 
 function initSMESlider() {
   const prevBtn = document.getElementById('slide-prev');
   const nextBtn = document.getElementById('slide-next');
-  const dotsContainer = document.getElementById('slide-dots');
+  const progressBar = document.getElementById('slide-progress-bar');
   const slideGraphic = document.getElementById('slide-graphic');
   const slideTitle = document.getElementById('slide-title');
   const slideDesc = document.getElementById('slide-desc');
-
-  // Render dots
-  dotsContainer.innerHTML = '';
-  smeSlides.forEach((_, idx) => {
-    const dot = document.createElement('div');
-    dot.classList.add('slide-dot');
-    if (idx === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goSlide(idx));
-    dotsContainer.appendChild(dot);
-  });
+  const slideContent = document.getElementById('slide-content');
 
   function updateSlideUI() {
     const current = smeSlides[currentSlideIdx];
-    slideGraphic.textContent = current.emoji;
-    slideTitle.textContent = current.title;
-    slideDesc.textContent = current.desc;
+    
+    // Add visual switch fade transition
+    slideContent.style.opacity = 0;
+    slideContent.style.transform = 'translateY(10px)';
+    
+    setTimeout(() => {
+      slideGraphic.textContent = current.emoji;
+      slideTitle.textContent = current.title;
+      slideDesc.textContent = current.desc;
+      
+      slideContent.style.opacity = 1;
+      slideContent.style.transform = 'translateY(0)';
+    }, 200);
 
     // Update buttons
     prevBtn.disabled = currentSlideIdx === 0;
     nextBtn.disabled = currentSlideIdx === smeSlides.length - 1;
 
-    // Update dots
-    const dots = dotsContainer.querySelectorAll('.slide-dot');
-    dots.forEach((dot, idx) => {
-      if (idx === currentSlideIdx) {
-        dot.classList.add('active');
-      } else {
-        dot.classList.remove('active');
-      }
-    });
+    // Update slide progress bar width
+    const progressPercent = ((currentSlideIdx + 1) / smeSlides.length) * 100;
+    progressBar.style.width = `${progressPercent}%`;
   }
 
   function goSlide(idx) {
@@ -161,14 +157,14 @@ function initLedgerReconciliation() {
       
       if (withHighlights) {
         if (row.id === "TX-003") {
-          highlightClass = 'style="background: rgba(245, 158, 11, 0.15);"';
+          highlightClass = 'style="background: rgba(245, 158, 11, 0.12); color: var(--amber);"';
           statusHtml = `<span class="status-badge timeout">TIMEOUT FAIL</span>`;
         } else if (row.id === "TX-007") {
-          highlightClass = 'style="background: rgba(244, 63, 94, 0.15);"';
+          highlightClass = 'style="background: rgba(244, 63, 94, 0.12); color: var(--rose);"';
           statusHtml = `<span class="status-badge fail">FAIL</span>`;
         } else if (row.id === "TX-009") {
-          highlightClass = 'style="background: rgba(245, 158, 11, 0.15);"';
-          statusHtml = `<span class="status-badge success">${row.status}</span> <span style="font-size:10px; color:var(--amber);">[Cost Diff]</span>`;
+          highlightClass = 'style="background: rgba(245, 158, 11, 0.12); color: var(--amber);"';
+          statusHtml = `<span class="status-badge success">${row.status}</span> <span style="font-size:10px; font-weight:700; color:var(--amber);">[Cost Diff]</span>`;
         }
       }
       
@@ -184,7 +180,7 @@ function initLedgerReconciliation() {
     });
 
     externalBody.innerHTML = '';
-    externalLedgerData.forEach((row, idx) => {
+    externalLedgerData.forEach((row) => {
       const tr = document.createElement('tr');
       tr.id = `ext-row-${row.reqId}`;
       
@@ -193,12 +189,12 @@ function initLedgerReconciliation() {
       
       if (withHighlights) {
         if (row.reqId === "REQ-093c") {
-          highlightClass = 'style="background: rgba(245, 158, 11, 0.15);"';
+          highlightClass = 'style="background: rgba(245, 158, 11, 0.12); color: var(--amber);"';
         } else if (row.reqId === "REQ-097g") {
-          highlightClass = 'style="background: rgba(244, 63, 94, 0.15);"';
+          highlightClass = 'style="background: rgba(244, 63, 94, 0.12); color: var(--rose);"';
         } else if (row.reqId === "REQ-099i") {
-          highlightClass = 'style="background: rgba(245, 158, 11, 0.15);"';
-          statusHtml += ` <span style="font-size:10px; color:var(--amber);">[Cost Diff]</span>`;
+          highlightClass = 'style="background: rgba(245, 158, 11, 0.12); color: var(--amber);"';
+          statusHtml += ` <span style="font-size:10px; font-weight:700; color:var(--amber);">[Cost Diff]</span>`;
         }
       }
       
@@ -223,6 +219,7 @@ function initLedgerReconciliation() {
     consoleLogs.innerHTML = '';
     
     const logs = [
+      { text: "FALO-AUDIT-SH:~$ run-audit-engine --ledger=all", type: "info" },
       { text: "[System] FALO AI 智能自動對帳模組啟動...", type: "info" },
       { text: "[Loading] 讀取本機內部交易帳本 (Internal Ledger): 10 筆記錄...", type: "info" },
       { text: "[Loading] 讀取外部 AI Provider 實用記錄 (External Ledger): 10 筆記錄...", type: "info" },
@@ -239,10 +236,10 @@ function initLedgerReconciliation() {
         consoleLogs.appendChild(line);
         consoleLogs.scrollTop = consoleLogs.scrollHeight;
         logIdx++;
-        setTimeout(printLog, 300);
+        setTimeout(printLog, 250);
       } else {
         // Run deep logic analysis logs
-        setTimeout(detailedReconciliation, 400);
+        setTimeout(detailedReconciliation, 300);
       }
     }
     
@@ -254,15 +251,15 @@ function initLedgerReconciliation() {
       { text: "[Checking] TX-001 <-> REQ-091a: Pages (1 == 1) | Cost OK. [MATCHED]", type: "success" },
       { text: "[Checking] TX-002 <-> REQ-092b: Pages (3 == 3) | Cost OK. [MATCHED]", type: "success" },
       { text: "[Anomaly Detected] TX-003 <-> REQ-093c: 內帳顯示已辨識 10 頁，但 Azure OCR 回傳 TIMEOUT (Cost $0)。", type: "warn" },
-      { text: "  -> AI 治理引擎決策：已標記此交易並自動發送重送指令予備援 Provider (Gemini)，保障 SME 用戶體驗。", type: "info" },
+      { text: "  >> 治理引擎決策：已標記此交易並自動發送重送指令予備援 Provider (Gemini)，保障 SME 用戶體驗。", type: "info" },
       { text: "[Checking] TX-004 <-> REQ-094d: Pages (2 == 2) | Cost OK. [MATCHED]", type: "success" },
       { text: "[Checking] TX-005 <-> REQ-095e: Pages (1 == 1) | Cost OK. [MATCHED]", type: "success" },
       { text: "[Checking] TX-006 <-> REQ-096f: Pages (4 == 4) | Cost OK. [MATCHED]", type: "success" },
       { text: "[Anomaly Detected] TX-007 <-> REQ-097g: 內帳列為 SUCCESS，但 Qwen-VL 狀態為 FAILED，實際處理頁數為 0！", type: "error" },
-      { text: "  -> AI 治理引擎決策：此為無效 API 請求。向 API 供應商退款申請單自動存檔，並重導向至 Google V 重新辨識。", type: "info" },
+      { text: "  >> 治理引擎決策：此為無效 API 請求。向 API 供應商退款申請單自動存檔，並重導向至 Google V 重新辨識。", type: "info" },
       { text: "[Checking] TX-008 <-> REQ-098h: Pages (2 == 2) | Cost OK. [MATCHED]", type: "success" },
       { text: "[Anomaly Detected] TX-009 <-> REQ-099i: 內帳成本登記為 $0.02 (Paddle預估)，外部 Gemini 帳單實扣 $0.08。原因：使用者上傳複雜手寫單據，觸發動態路由切換為 Gemini。", type: "warn" },
-      { text: "  -> AI 治理引擎決策：修正內帳真實成本，重新計算利潤空間。此用例列入成本治理模型優化評估點。", type: "info" },
+      { text: "  >> 治理引擎決策：修正內帳真實成本，重新計算利潤空間。此用例列入成本治理模型優化評估點。", type: "info" },
       { text: "[Checking] TX-010 <-> REQ-100j: Pages (5 == 5) | Cost OK. [MATCHED]", type: "success" },
       { text: "[Complete] 對帳完成。共分析 10 筆。成功匹配: 7 | 異常檢測: 3 (已全數由 AI 自動修復 / 調整記錄)。", type: "success" },
       { text: "[FinOps Report] 本次自動對帳幫助節省/追回異常支出：$0.065 USD。", type: "success" }
@@ -278,7 +275,7 @@ function initLedgerReconciliation() {
         consoleLogs.appendChild(line);
         consoleLogs.scrollTop = consoleLogs.scrollHeight;
         logIdx++;
-        setTimeout(printDetailedLog, 250);
+        setTimeout(printDetailedLog, 200);
       } else {
         // Render tables again with highlights
         renderTables(true);
@@ -362,7 +359,7 @@ function initArchBlockHighlights() {
     "gateway": { title: "API Gateway (安全與驗證)", layer: "AI Proxy 治理核心", desc: "處理 API 金鑰驗證、流量限額控制 (Rate Limiting)、防禦性 Audit 審計、以及統一的資料格式轉換（確保輸出標準的 JSON 格式）。" },
     "logger": { title: "Ledger Syncer (內外雙帳同步)", layer: "AI Proxy 治理核心", desc: "重要創新點。在呼叫 API 的瞬間，將客戶所見的售價用量（內帳）與雲端商回傳的實際計費（外帳）進行雙向寫入。這是後續 AI 自動對帳的資料基礎。" },
     "router": { title: "Dynamic Provider Router", layer: "AI Proxy 治理核心", desc: "專利級路由調度中心。根據文件解析難度、即時 Provider 延遲、以及預算限制，動態決定將請求送往 PaddleOCR、Gemini V 還是其他模型。支援自動 Failover。" },
-    "audit": { title: "FinOps & Audit Analytics", layer: "AI Proxy 治理核心", desc: "持續監控 API 呼叫的成功率、延遲、費用異常。產生治理分析報表（P50/P90 延遲），並對偏離常態的異常費用發出主動警告。" },
+    "audit": { title: "FinOps & Audit Analytics", layer: "AI Proxy 治理核心", desc: "持續監控 API 呼叫的成功率、延遲、費用異常。產生治理分析報表（P50/P90 延遲），並對偏離常態 of 異常費用發出主動警告。" },
     "paddle": { title: "PaddleOCR Plugin", layer: "AI Providers 執行層", desc: "開源輕量化 OCR 引擎，適合標準字體、高對比度的表單與統一發票。成本極低（幾乎為零），響應速度在 100ms 內。" },
     "gemini": { title: "Gemini Vision V2 Plugin", layer: "AI Providers 執行層", desc: "Google 多模態大語言模型。適合辨識複雜的合約條款、污損單據、手寫簽名，甚至能進行語意理解，但成本與延遲相對較高。" },
     "qwen": { title: "Qwen VL Plugin", layer: "AI Providers 執行層", desc: "阿里開源多模態模型，對亞洲語系、表格結構提取有極強的性價比優勢。作為中等複雜度任務的首選路由節點。" },
@@ -387,48 +384,54 @@ function initArchBlockHighlights() {
   });
 }
 
-// 6. Business Model Canvas Highlights
+// 6. Business Model Canvas Highlights (With Premium Slide-out Drawer Modal)
 function initBMCHighlights() {
   const cells = document.querySelectorAll('.bmc-cell');
   const detailsTitle = document.getElementById('bmc-details-title');
   const detailsDesc = document.getElementById('bmc-details-desc');
+  
+  // Modal DOM elements
+  const modal = document.getElementById('bmc-modal');
+  const modalTitle = document.getElementById('bmc-modal-title');
+  const modalDesc = document.getElementById('bmc-modal-desc');
+  const modalClose = document.getElementById('bmc-modal-close');
 
   const bmcDetails = {
     "segments": {
       title: "目標客群 (Customer Segments)",
-      desc: "1. 中小型企業 (SMEs): 缺乏 AI 開發能力，但有大量單據、發票、合約辨識需求，且對成本極度敏感。<br>2. 軟體服務商 (ISVs): 希望為自己的 ERP、HR 系統嵌入 OCR 能力，但不想花時間維護多個 AI API 連線與對帳單。<br>3. 獨立開發者: 尋求即插即用、統一計費且穩定的多功能 AI 網關。"
+      desc: "1. <strong>中小型企業 (SMEs)</strong>: 缺乏專門的 AI 團隊與算力優化能力，但日常有大量單據、發票、合約辨識需求，且對成本極度敏感。<br><br>2. <strong>軟體服務商 (ISVs)</strong>: 尋求為既有 ERP、CRM 或會計系統嵌入可靠 OCR 功能，但希望免去維護多個 AI 連線、故障轉移與龐大對帳單的麻煩。<br><br>3. <strong>開發者與顧問</strong>: 需要一個高穩定性、統一接口與計費透明的 AI 代理服務治理中台。"
     },
     "relations": {
       title: "顧客關係 (Customer Relationships)",
-      desc: "1. 自動化與自助服務: 透過 PWA 與 Developer Console 提供完全自助的金鑰申領、費用查看。<br>2. 治理透明化: 自動化內外帳對帳與報表，讓 SME 客戶完全掌握每一分錢用在哪裡，免受 API 雲端商黑盒帳單之苦。<br>3. 主動成本優化建議: AI 主動幫客戶省錢，建立長期信任。"
+      desc: "1. <strong>完全自助的開發主控台</strong>: 提供極致順暢的 API 金鑰管理、額度調配與實時監控。<br><br>2. <strong>財務對帳透明化</strong>: 推出內外雙軌對帳報表，讓 SME 客戶完全掌握每一分錢的算力消耗，建立極高信任度。<br><br>3. <strong>主動式 FinOps 節費優化</strong>: 系統會根據客戶歷史單據結構，主動推薦最佳的路由分流模型，幫客戶省錢。"
     },
     "channels": {
       title: "通路渠道 (Channels)",
-      desc: "1. FALO Prompt Manager 內部應用市場 (Capability Market)。<br>2. 開發者平台與官方 API 文件。<br>3. 整合式套件（Chrome Extension, Google Apps Script 套件），覆蓋 SME 常用的工作流環境。"
+      desc: "1. <strong>FALO Prompt Manager 內建商場</strong>: 作為首發的內置核心能力卡（Capability Card #1）供一鍵安裝。<br><br>2. <strong>第三方整合套件</strong>: 包括 Chrome Extension、Google Apps Script 外掛與 Webhook 連接器，覆蓋 SME 日常所處之辦公流程。<br><br>3. <strong>SI 系統集成代理</strong>: 與地區 ERP 代理商、會計師事務所建立分銷合作渠道。"
     },
     "propositions": {
       title: "價值主張 (Value Propositions)",
-      desc: "1. <strong>AI 能力服務治理平台</strong>: OCR 只是切入點，平台提供的是一整套能力治理機制 (動態路由、內外帳對帳、FinOps 優化)。<br>2. <strong>極致性價比 (FinOps-optimized)</strong>: 平均節省 60% 成本，同時維持 99% 的辨識率。<br>3. <strong>零 API 維護成本</strong>: 客戶只需維護 FALO 一張卡，底層自動對接並故障轉移各大 AI 模型。<br>4. <strong>絕對透明對帳</strong>: 拒絕計費黑盒，AI 自動幫忙查帳與追回異常支出。"
+      desc: "1. <strong>AI 能力服務治理中台</strong>: OCR 只是切入點，平台根本上提供的是一整套能力治理機制 (動態路由、內外帳自動審計、FinOps 最佳化)。<br><br>2. <strong>極致性價比 (FinOps)</strong>: 透過智能雙軌路由，幫企業平均節省 60% 模型成本，同時維持 99% 的綜合辨識率。<br><br>3. <strong>無痛 AI 整合 (免 API 踩坑)</strong>: 客戶只需串接 FALO API，底層自動負責雲端巨頭 Failover 容災調度。<br><br>4. <strong>安全合規性與 AI 審計</strong>: 內外雙軌帳本自動退款稽核，守護企業資金，並為 AI 行為保留完整稽核軌跡 (Audit Trail)。"
     },
     "activities": {
       title: "關鍵活動 (Key Activities)",
-      desc: "1. AI 路由演算優化 (優化成本與準確度的平衡)。<br>2. 多模型插件開發與維護 (Gemini, PaddleOCR, Qwen, Azure...)。<br>3. 安全網關、內外帳同步機制與對帳算法迭代。"
+      desc: "1. <strong>AI 路由分流算法迭代</strong>: 持續優化圖像難易度分類器，精準平衡 PaddleOCR 與大模型之呼叫比重。<br><br>2. <strong>多模型插件與 Provider 維護</strong>: 對接最新多模態模型，提供隨插即用的 API 卡片適配。<br><br>3. <strong>內外雙帳同步與智能稽核引擎開發</strong>: 保障雙軌 Ledger 在高併發時的同步寫入速度與對帳正確率。"
     },
     "resources": {
       title: "關鍵資源 (Key Resources)",
-      desc: "1. FALO AI Runtime 核心路由架構與對帳引擎專利。<br>2. 與各大 AI 模型商的 API 合作夥伴折扣通道。<br>3. 覆核用的人工標記網絡與非同步審查平台資源。"
+      desc: "1. <strong>核心專利技術</strong>: FALO AI Runtime Gateway 路由算法、Ledger 雙軌審計引擎技術。<br><br>2. <strong>大宗算力採購折讓</strong>: 與模型供應商建立的大規模 API 批發協議折扣通道。<br><br>3. <strong>眾包 HITL 人工覆核網絡</strong>: 自建彈性人工在線核對平台，提供低延遲的兜底校驗。"
     },
     "partners": {
       title: "關鍵合作夥伴 (Key Partners)",
-      desc: "1. AI 基礎模型供應商 (Google Cloud, Microsoft Azure, Alibaba Cloud)。<br>2. ERP 與會計軟體系統商 (作為其外掛 OCR / 財務治理能力)。<br>3. 人力資源或眾包平台 (提供 Human-in-the-loop 人工覆核的彈性人力支援)。"
+      desc: "1. <strong>AI 基礎模型供應商</strong>: Google Cloud (Gemini), Microsoft Azure, Alibaba Cloud (Qwen) 等提供底層能力支撐。<br><br>2. <strong>ERP/SaaS 系統整合商</strong>: 串接核心工作流系統，將資料直接導入入帳流程。<br><br>3. <strong>TAAT/FALO 地域代理夥伴</strong>: 協助將平台推廣至不同行業場景，進行客製化 Workflow 設計。"
     },
     "costs": {
       title: "成本結構 (Cost Structure)",
-      desc: "1. API 消耗成本: 支付給 Gemini、Azure 等 Provider 的底層費用。<br>2. 研發與基礎設施: 路由網關的代管、Ledger 記錄庫維護與對帳運算成本。<br>3. 人工覆核佣金: 支付給 HITL 覆核人員的單筆佣金費。"
+      desc: "1. <strong>底層 API 呼叫支出</strong>: 給予 Gemini、Azure、Qwen 等 Provider 的實際消耗用量費用。<br><br>2. <strong>平台算力與託管成本</strong>: Runtime Gateway、Ledger 雙向寫入數據庫、安全沙盒的雲端代管維護。<br><br>3. <strong>人工審核佣金</strong>: 支付給 Human-in-the-loop 人力網絡的單筆計件佣金。"
     },
     "revenues": {
       title: "收益來源 (Revenue Streams)",
-      desc: "1. API 用量差價 (API Markup Fee): 透過大宗採購 API 取得低價折讓，再以稍高的價格提供給中小企業。<br>2. 治理訂閱費 (Governance SaaS Premium): 針對大型客戶提供進階 FinOps 報表、自動查帳、退款追回功能，收取固定月費。<br>3. 能力卡授權費: 未來第三方 Capability Card 上架的佣金分成 (30%)。"
+      desc: "1. <strong>API 用量加成差價 (Markup)</strong>: 依 By-Case (按件) 對客戶收取穩定服務價，後台經由路由與大宗折讓賺取利潤差。<br><br>2. <strong>FinOps 治理進階功能年費 (SaaS)</strong>: 針對中大型企業提供進階雙軌自動查帳、超扣退款發起、BI 數據分析報表。<br><br>3. <strong>能力卡應用市場分成 (Cap Store)</strong>: 未來第三方開發者上架自訂能力卡 (Capability Card) 時，平台抽取 30% 分成佣金。"
     }
   };
 
@@ -438,14 +441,60 @@ function initBMCHighlights() {
       const data = bmcDetails[key];
 
       if (data) {
+        // Set fallback UI elements text
         detailsTitle.innerHTML = data.title;
         detailsDesc.innerHTML = data.desc;
 
-        // Scroll to details panel for better mobile view
-        if (window.innerWidth <= 1024) {
-          detailsTitle.scrollIntoView({ behavior: 'smooth' });
-        }
+        // Open custom premium modal drawer
+        modalTitle.innerHTML = data.title;
+        modalDesc.innerHTML = data.desc;
+        modal.classList.add('active');
       }
     });
+  });
+
+  // Close modal logic
+  modalClose.addEventListener('click', () => {
+    modal.classList.remove('active');
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+    }
+  });
+}
+
+// 7. Light / Dark Theme Toggle Controller (With localStorage Persistence)
+function initThemeToggle() {
+  const toggleBtn = document.getElementById('theme-toggle');
+  const toggleIcon = document.getElementById('theme-toggle-icon');
+  const toggleText = document.getElementById('theme-toggle-text');
+  
+  // Load saved theme or default to dark
+  const savedTheme = localStorage.getItem('falo-theme') || 'dark';
+  
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-theme');
+    toggleIcon.textContent = '🌙';
+    toggleText.textContent = '切換暗黑色系';
+  } else {
+    document.body.classList.remove('light-theme');
+    toggleIcon.textContent = '☀️';
+    toggleText.textContent = '切換明亮色系';
+  }
+  
+  toggleBtn.addEventListener('click', () => {
+    const isLight = document.body.classList.toggle('light-theme');
+    
+    if (isLight) {
+      localStorage.setItem('falo-theme', 'light');
+      toggleIcon.textContent = '🌙';
+      toggleText.textContent = '切換暗黑色系';
+    } else {
+      localStorage.setItem('falo-theme', 'dark');
+      toggleIcon.textContent = '☀️';
+      toggleText.textContent = '切換明亮色系';
+    }
   });
 }
