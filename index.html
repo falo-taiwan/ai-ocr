@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FALO AI Capability Runtime Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">F</div>
+        <div class="brand-info">
+          <h1>FALO AI Runtime</h1>
+          <span>Workflow & Governance</span>
+        </div>
+      </div>
+      
+      <ul class="nav-menu">
+        <li class="nav-item active" data-tab="tab-positioning">
+          <a class="nav-link">
+            <span>定位與世界觀</span>
+            <span class="nav-link-num">01</span>
+          </a>
+        </li>
+        <li class="nav-item" data-tab="tab-concept">
+          <a class="nav-link">
+            <span>核心價值鏈概念圖</span>
+            <span class="nav-link-num">02</span>
+          </a>
+        </li>
+        <li class="nav-item" data-tab="tab-sme">
+          <a class="nav-link">
+            <span>SME版簡報圖</span>
+            <span class="nav-link-num">03</span>
+          </a>
+        </li>
+        <li class="nav-item" data-tab="tab-governance">
+          <a class="nav-link">
+            <span>AI 治理與自動對帳</span>
+            <span class="nav-link-num">04</span>
+          </a>
+        </li>
+        <li class="nav-item" data-tab="tab-bmc">
+          <a class="nav-link">
+            <span>商業模式圖</span>
+            <span class="nav-link-num">05</span>
+          </a>
+        </li>
+        <li class="nav-item" data-tab="tab-architecture">
+          <a class="nav-link">
+            <span>能力卡架構圖</span>
+            <span class="nav-link-num">06</span>
+          </a>
+        </li>
+        <li class="nav-item" data-tab="tab-roadmap">
+          <a class="nav-link">
+            <span>演進路線圖</span>
+            <span class="nav-link-num">07</span>
+          </a>
+        </li>
+      </ul>
+      
+      <div class="sidebar-footer">
+        <p>Current Card: Card #1 (OCR)</p>
+        <p>FALO Runtime Engine &copy; 2026</p>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Deliverable 1: Project Positioning (專案定位文件) -->
+      <section id="tab-positioning" class="content-section active">
+        <div class="header-wrapper">
+          <span class="section-tag">Platform Manifesto</span>
+          <h2 class="section-title">FALO AI Capability Runtime 定位與世界觀</h2>
+          <p class="section-desc">「OCR 是案例，Workflow 是主體，Governance 是靈魂，Knowledge Integration 才是長期護城河。」</p>
+        </div>
+
+        <div class="positioning-grid">
+          <div class="main-column">
+            <div class="glass-card positioning-hero">
+              <h3>專案定位：AI 能力服務治理平台</h3>
+              <p>
+                我們絕不能將此專案矮化為「OCR 辨識工具」。OCR 只是 <strong>Capability Card #1 (第一張能力卡)</strong>，是驗證架構、收取 API 差價與計算投資報酬率 (ROI) 的首個 PoC。
+                <br><br>
+                FALO 的核心定位是 <strong>Workflow × Governance × KM × ETL × AI Runtime</strong>。
+                我們在企業的 AI 應用流中，扮演「治理者」與「稽核者」的角色，將企業的知識、流程、文件、規則、AI 能力與審計要求無縫串接。
+              </p>
+              <div style="margin-top: 16px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 13px;">
+                <div>
+                  <strong style="color: var(--cyan);">💡 客戶計費 vs. 夥伴對帳</strong>
+                  <p style="color: var(--text-secondary); margin-top: 4px;">客戶端採用直覺的 <strong>By-Case (按件/按頁) 定價</strong>，免去複雜算力解讀；而精細的<strong>內外雙軌對帳</strong>則是專為 FALO/TAAT 夥伴設計的後台治理利器，用以管控 API 成本與利潤空間。</p>
+                </div>
+                <div>
+                  <strong style="color: var(--emerald);">📊 BI 數據分析與教材定位</strong>
+                  <p style="color: var(--text-secondary); margin-top: 4px;">此雙軌對帳與分流機制，不僅僅是系統後台，更是企業在介紹 <strong>BI 數據分析與 FinOps 營運決策</strong>時極佳的實戰教學案例，完美展示如何用數據驅動成本優化。</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card">
+              <div class="card-title-row">
+                <div class="card-icon">⚙️</div>
+                <h3>核心方程式：Workflow × Governance × KM</h3>
+              </div>
+              <div class="feature-list">
+                <div class="feature-item">
+                  <h4>Workflow (工作流是主體)</h4>
+                  <p>辨識文字只是起點，如何將資料自動帶入發票審核、ERP 報銷、跨系統派工等核心流程，才是企業的真正痛點。</p>
+                </div>
+                <div class="feature-item">
+                  <h4>Governance (治理是靈魂)</h4>
+                  <p>透過「內外帳對帳」與 API 代理防火牆，為企業監控每一次 API 呼叫的成功率、延遲、異常超扣與 Timeout，提供 FinOps 的最優調度。</p>
+                </div>
+                <div class="feature-item">
+                  <h4>KM (知識整合是長期護城河)</h4>
+                  <p>把所有經由能力卡過濾、ETL 結構化後的資料，沉澱為企業專屬的知識庫（如 NotebookLM 整合），形成越用越聰明的企業腦。</p>
+                </div>
+                <div class="feature-item">
+                  <h4>ETL & AI Runtime Audit</h4>
+                  <p>將非結構化文件（影像、聲音、合約）清洗為結構化資料，並在 Runtime 執行層記錄 Audit Trail，確保合規性與稽核軌跡。</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="glass-card">
+              <div class="card-title-row">
+                <div class="card-icon">🤝</div>
+                <h3>角色定位與協同模型</h3>
+                <span class="badge-tech" style="margin-left: auto;">Collaboration Matrix</span>
+              </div>
+              <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7;">
+                本架構的建立，來自於四種角色的完美互補：
+              </p>
+              <table class="position-table" style="margin-top: 12px;">
+                <thead>
+                  <tr>
+                    <th>角色名</th>
+                    <th>代表視角</th>
+                    <th>在此專案的貢獻</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>ff (Force)</strong></td>
+                    <td>顧問、治理者、方法論設計者、AI Audit 傳教士</td>
+                    <td>提供核心 Know-how，將 OCR 拉高至流程治理與知識鏈條的戰略高度。</td>
+                  </tr>
+                  <tr>
+                    <td><strong>smf (ChatGPT)</strong></td>
+                    <td>策略顧問、語意翻譯器</td>
+                    <td>釐清頂層商業邏輯，進行語意轉譯，確保定位與商業模式對齊。</td>
+                  </tr>
+                  <tr>
+                    <td><strong>aaa (Antigravity)</strong></td>
+                    <td>教材工程師、產品規劃師、系統架構師</td>
+                    <td>將抽象的方法論與構想落地，封裝成可討論的規格、藍圖與互動式 Prototype。</td>
+                  </tr>
+                  <tr>
+                    <td><strong>sxf (Codex)</strong></td>
+                    <td>CTO、工程總架構</td>
+                    <td>負責將架構規格代碼化，保障底層代碼的高效運行與系統部署。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Sidebar Column -->
+          <div class="sidebar-column">
+            <div class="glass-card stat-card">
+              <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">FALO Runtime 戰略維度</h3>
+              <div class="stat-item">
+                <span class="stat-label">首發案例</span>
+                <span class="stat-value">Card #1 (OCR)</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">治理核心</span>
+                <span class="stat-value highlight">AI Audit & FinOps</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">長期壁壘</span>
+                <span class="stat-value">KM (知識庫整合)</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">對接重點</span>
+                <span class="stat-value">Workflow & ERP</span>
+              </div>
+            </div>
+            
+            <div class="glass-card" style="margin-top: 16px;">
+              <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 12px;">能力卡插槽計畫 (Slot List)</h3>
+              <table class="position-table">
+                <thead>
+                  <tr>
+                    <th>卡片種類</th>
+                    <th>應用場景</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>OCR Card</strong></td>
+                    <td>單據/合約 ETL 結構化</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Vision Card</strong></td>
+                    <td>現場安全/瑕疵檢測</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Translate Card</strong></td>
+                    <td>跨境合約與文書治理</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Speech Card</strong></td>
+                    <td>會議記錄與稽核軌跡</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Audit Card</strong></td>
+                    <td>AI 行為審計與合規性</td>
+                  </tr>
+                  <tr>
+                    <td><strong>ERP Connect</strong></td>
+                    <td>Workflow 數據回寫</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Deliverable 2: Concept Diagram (概念圖版本) -->
+      <section id="tab-concept" class="content-section">
+        <div class="header-wrapper">
+          <span class="section-tag">Value Chain Lifecycle</span>
+          <h2 class="section-title">FALO AI 企業數據價值鏈生命週期</h2>
+          <p class="section-desc">從文件上傳開始，歷經 OCR 提取、結構化清洗、工作流流轉、ERP 記帳，最終沉澱為企業專屬知識庫與稽核 insights 的完整閉環。</p>
+        </div>
+
+        <div class="glass-card">
+          <div class="diagram-container">
+            <svg class="flow-svg" viewBox="0 0 900 480">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1 L 10 5 L 0 9 z" fill="rgba(255,255,255,0.4)" />
+                </marker>
+                <marker id="arrow-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1 L 10 5 L 0 9 z" fill="#06b6d4" />
+                </marker>
+              </defs>
+
+              <!-- Line 1 Nodes (Ingestion to ERP) -->
+              <!-- Step 1: Input Document -->
+              <rect x="20" y="60" width="130" height="60" rx="8" class="flow-node active" />
+              <text x="85" y="90" text-anchor="middle" class="flow-text">1. 企業原始文件</text>
+              <text x="85" y="105" text-anchor="middle" class="flow-subtext">影像 / PDF / 拍照單據</text>
+
+              <!-- Connection 1 -> 2 -->
+              <path d="M 150 90 L 190 90" class="flow-link active" marker-end="url(#arrow-cyan)" />
+
+              <!-- Step 2: Capability Card #1 -->
+              <rect x="200" y="60" width="130" height="60" rx="8" class="flow-node" style="stroke: var(--cyan);" />
+              <text x="265" y="90" text-anchor="middle" class="flow-text" fill="var(--cyan)">2. 能力卡 #1 (OCR)</text>
+              <text x="265" y="105" text-anchor="middle" class="flow-subtext">智能路由辨識 / AI Proxy</text>
+
+              <!-- Connection 2 -> 3 -->
+              <path d="M 330 90 L 370 90" class="flow-link active" marker-end="url(#arrow-cyan)" />
+
+              <!-- Step 3: ETL & Structuring -->
+              <rect x="380" y="60" width="130" height="60" rx="8" class="flow-node" />
+              <text x="445" y="90" text-anchor="middle" class="flow-text">3. ETL 結構化</text>
+              <text x="445" y="105" text-anchor="middle" class="flow-subtext">非結構資料轉為 JSON</text>
+
+              <!-- Connection 3 -> 4 -->
+              <path d="M 510 90 L 550 90" class="flow-link" marker-end="url(#arrow)" />
+
+              <!-- Step 4: Workflow Engine -->
+              <rect x="560" y="60" width="130" height="60" rx="8" class="flow-node" style="stroke: var(--purple);" />
+              <text x="625" y="90" text-anchor="middle" class="flow-text" fill="var(--purple-light)">4. 工作流調度 (Workflow)</text>
+              <text x="625" y="105" text-anchor="middle" class="flow-subtext">審批流程 / 業務規則觸發</text>
+
+              <!-- Connection 4 -> 5 -->
+              <path d="M 690 90 L 730 90" class="flow-link" marker-end="url(#arrow)" />
+
+              <!-- Step 5: ERP & Core systems -->
+              <rect x="740" y="60" width="130" height="60" rx="8" class="flow-node" />
+              <text x="805" y="90" text-anchor="middle" class="flow-text">5. ERP 回寫入帳</text>
+              <text x="805" y="105" text-anchor="middle" class="flow-subtext">會計 / ERP 資料整合</text>
+
+              <!-- Downward Connection 5 -> 6 -->
+              <path d="M 805 120 L 805 220 L 740 220" class="flow-link" marker-end="url(#arrow)" />
+
+              <!-- Line 2 Nodes (KM to Management Insight) -->
+              <!-- Step 6: Knowledge Base -->
+              <rect x="600" y="190" width="130" height="60" rx="8" class="flow-node" style="stroke: var(--emerald);" />
+              <text x="665" y="220" text-anchor="middle" class="flow-text" fill="var(--emerald)">6. 知識整合 (KM)</text>
+              <text x="665" y="235" text-anchor="middle" class="flow-subtext">封裝為企業專屬知識庫</text>
+
+              <!-- Connection 6 -> 7 -->
+              <path d="M 600 220 L 510 220" class="flow-link" marker-end="url(#arrow)" />
+
+              <!-- Step 7: Audit Trail -->
+              <rect x="370" y="190" width="130" height="60" rx="8" class="flow-node" style="stroke: var(--rose);" />
+              <text x="435" y="220" text-anchor="middle" class="flow-text" fill="var(--rose)">7. 稽核軌跡 (Audit)</text>
+              <text x="435" y="235" text-anchor="middle" class="flow-subtext">AI 行為審計與追蹤記錄</text>
+
+              <!-- Connection 7 -> 8 -->
+              <path d="M 370 220 L 280 220" class="flow-link" marker-end="url(#arrow)" />
+
+              <!-- Step 8: AI Analytics & FinOps -->
+              <rect x="140" y="190" width="130" height="60" rx="8" class="flow-node" />
+              <text x="205" y="220" text-anchor="middle" class="flow-text">8. AI 治理與 FinOps</text>
+              <text x="205" y="235" text-anchor="middle" class="flow-subtext">分析計費 / 監控異常成本</text>
+
+              <!-- Connection 8 -> 9 -->
+              <path d="M 140 220 L 85 220 L 85 320 L 190 320" class="flow-link active" marker-end="url(#arrow-cyan)" />
+
+              <!-- Step 9: Management Insight -->
+              <rect x="200" y="290" width="500" height="70" rx="8" class="flow-node active" style="stroke: var(--cyan);" />
+              <text x="450" y="325" text-anchor="middle" class="flow-text" fill="var(--cyan)">9. 管理洞察 (Management Insights)</text>
+              <text x="450" y="343" text-anchor="middle" class="flow-subtext">智慧報表 &rarr; 流程改善決策 &rarr; 持續優化企業營運效率</text>
+
+              <!-- Double ledger audit link box -->
+              <rect x="140" y="390" width="620" height="50" rx="6" class="flow-node" style="stroke: var(--purple); fill: rgba(139, 92, 246, 0.05);" />
+              <text x="450" y="415" text-anchor="middle" class="flow-text" fill="var(--purple-light)">FALO Runtime 核心雙軌對帳防護：內帳 (客戶定價) VS 外帳 (Provider 實扣) 智慧自動審計</text>
+              <text x="450" y="430" text-anchor="middle" class="flow-subtext">守護企業數據流與資金流的安全，杜絕雲端商計費黑盒</text>
+            </svg>
+          </div>
+          
+          <div style="margin-top: 20px; color: var(--text-secondary); font-size: 14px;">
+            <p><strong>數據生命週期說明：</strong></p>
+            <ul style="margin-left: 20px; margin-top: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <li><strong>入流層 (ETL)</strong>：將企業複雜單據文件（影像）透過模組化能力卡與 AI Proxy 做高精準辨識並清洗為結構化 JSON 資料。</li>
+              <li><strong>業務層 (Workflow & ERP)</strong>：結構化資料直接回填企業現有工作流與 ERP，實現自動化財務報銷、進銷存登載。</li>
+              <li><strong>儲存層 (KM)</strong>：將所有單據與辨識脈絡沉澱至企業知識庫，作為未來企業內部搜尋、訓練、法規遵循的長期資產。</li>
+              <li><strong>治理層 (Audit & FinOps)</strong>：雙軌帳本引擎即時查帳，監控延遲、Timeout、異常扣款，提供成本分析與流程改善的管理決策洞察。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Deliverable 3: SME Slide Viewer (SME版簡報圖) -->
+      <section id="tab-sme" class="content-section">
+        <div class="header-wrapper">
+          <span class="section-tag">Value Proposition Presentation</span>
+          <h2 class="section-title">中小企業（SME）老闆看得懂的價值簡報</h2>
+          <p class="section-desc">AI 不僅僅是取代人力的打字工具，更是中小企業升級流程治理、降低隱性開銷、建構企業知識腦的戰略引擎。</p>
+        </div>
+
+        <div class="slide-deck glass-card">
+          <div class="slide-content-container" id="slide-content">
+            <div class="slide-graphic" id="slide-graphic">📥</div>
+            <div class="slide-text">
+              <h3 id="slide-title">載入中...</h3>
+              <p id="slide-desc">載入中...</p>
+            </div>
+          </div>
+          
+          <div class="slide-controls">
+            <button class="slide-btn" id="slide-prev">&larr; 上一步</button>
+            <div class="slide-dots" id="slide-dots">
+              <!-- Dots rendered by JS -->
+            </div>
+            <button class="slide-btn" id="slide-next">下一步 &rarr;</button>
+          </div>
+        </div>
+        
+        <div class="glass-card" style="max-width: 800px; margin: 24px auto 0;">
+          <h4 style="color: var(--cyan); margin-bottom: 8px;">老闆最關心的四大核心回報 (ROI)：</h4>
+          <ul style="list-style: none; font-size: 14px; color: var(--text-secondary); display: grid; gap: 8px;">
+            <li>🛡️ <strong>費用零黑盒</strong>：AI 自動稽核雲端商帳單，每一筆超時或失敗的 API 費用自動抓出並追回，守住企業資金。</li>
+            <li>🚀 <strong>業務流自動化</strong>：串接 ERP 與會計流程，免除人工建檔，讓業務與財務的工作效率提升 500%。</li>
+            <li>🧠 <strong>知識資產化</strong>：所有單據辨識結果自動歸檔為企業知識庫 (KM)，隨時可用自然語言提問進行合規審查。</li>
+            <li>📉 <strong>動態節費高達 60%</strong>：根據單據難易度自動調度最划算的模型，用最聰明的方式控管 API 支出。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Deliverable 4: AI Governance Dashboard (AI 治理與自動對帳) -->
+      <section id="tab-governance" class="content-section">
+        <div class="header-wrapper">
+          <span class="section-tag">Audit Engine Terminal</span>
+          <h2 class="section-title">AI 稽核與 FinOps 雙軌對帳主控台</h2>
+          <p class="section-desc">透過「內帳（FALO 客戶計費）」與「外帳（Provider 實際帳單）」的即時比對，抓出差異、超額收費與失敗，並動態調配路由機制。</p>
+        </div>
+
+        <!-- Split ledgers table -->
+        <div class="gov-grid">
+          <!-- Internal Ledger -->
+          <div class="glass-card ledger-box">
+            <div class="ledger-header">
+              <h3 style="font-size: 16px; font-weight: 600;">內帳（FALO 客戶計費記錄）</h3>
+              <span class="ledger-badge internal">Internal Ledger</span>
+            </div>
+            <div class="ledger-table-wrapper">
+              <table class="ledger-table">
+                <thead>
+                  <tr>
+                    <th>交易編號</th>
+                    <th>客戶名稱</th>
+                    <th>辨識頁數</th>
+                    <th>預計費用</th>
+                    <th>交易狀態</th>
+                    <th>時間</th>
+                  </tr>
+                </thead>
+                <tbody id="internal-ledger-body">
+                  <!-- JS Render -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- External Ledger -->
+          <div class="glass-card ledger-box">
+            <div class="ledger-header">
+              <h3 style="font-size: 16px; font-weight: 600;">外帳（AI Provider 實際計費單）</h3>
+              <span class="ledger-badge external">External Ledger</span>
+            </div>
+            <div class="ledger-table-wrapper">
+              <table class="ledger-table">
+                <thead>
+                  <tr>
+                    <th>請求編號</th>
+                    <th>Provider</th>
+                    <th>處理頁數</th>
+                    <th>實扣費用</th>
+                    <th>執行狀態</th>
+                    <th>時間</th>
+                  </tr>
+                </thead>
+                <tbody id="external-ledger-body">
+                  <!-- JS Render -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reconciliation simulation actions and console -->
+        <div class="reconcile-actions">
+          <button class="action-btn" id="reconcile-btn">
+            <span>啟動 AI 雙軌帳本自動審計 (Run Audit Engine)</span>
+          </button>
+        </div>
+
+        <div class="glass-card console-card">
+          <div class="console-title">
+            <span>📟 FALO AI 對帳審計引擎終端</span>
+          </div>
+          <div class="console-logs" id="console-logs">
+            <div class="log-line info">等待對帳指令... 請點擊上方按鈕開始模擬。</div>
+          </div>
+        </div>
+
+        <!-- FinOps savings slider -->
+        <div class="glass-card finops-grid">
+          <div>
+            <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--cyan);">AI 路由動態成本調度 (FinOps Simulator)</h3>
+            <p style="font-size: 14px; color: var(--text-secondary);">
+              調整發票與一般文件路由至 <strong>PaddleOCR (便宜)</strong> 的比例，其餘難題路由至 <strong>Gemini (精準但貴)</strong>。
+              觀察萬頁預算會如何動態變化：
+            </p>
+            
+            <div class="slider-container">
+              <div class="slider-labels">
+                <span>100% Gemini (純大模型)</span>
+                <span>高比例 PaddleOCR</span>
+              </div>
+              <input type="range" min="0" max="100" value="95" class="slider-control" id="routing-slider">
+            </div>
+
+            <div class="ratio-display">
+              <div class="ratio-box">
+                <div class="val" id="paddle-ratio">95%</div>
+                <div class="lbl">PaddleOCR 路由比例</div>
+              </div>
+              <div class="ratio-box">
+                <div class="val" id="gemini-ratio">5%</div>
+                <div class="lbl">Gemini 路由比例</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="border-left: 1px solid var(--border-color); padding-left: 24px;">
+            <div class="saving-display">
+              <div class="saving-percent" id="savings-percent">60%</div>
+              <div style="font-size: 18px; font-weight: 700; color: var(--emerald); margin-top: 4px;">預算節省幅度</div>
+              <p class="saving-desc" id="optimizer-summary-text">
+                正在計算 AI 分流最佳化方案...
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BI & Billing explanation card -->
+        <div class="glass-card" style="margin-top: 24px; border-left: 4px solid var(--purple); display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div>
+            <h4 style="color: var(--purple-light); font-size: 15px; margin-bottom: 8px; font-weight: 700; text-transform: uppercase;">🔒 內部夥伴專用對帳治理利器 (Internal Partner Tool)</h4>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
+              雖然客戶在前端只接觸簡單、直覺的 <strong>By-Case (按件計酬)</strong> 算力計費，但為了保護代理商與 FALO/TAAT 夥伴的利潤，系統在後台運行這套<strong>雙軌對帳系統</strong>。這是給 FALO/TAAT 營運夥伴的內部稽核利器，用來掌握算力消耗與精準監管利潤。
+            </p>
+          </div>
+          <div>
+            <h4 style="color: var(--emerald); font-size: 15px; margin-bottom: 8px; font-weight: 700; text-transform: uppercase;">🎓 卓越的 BI 數據分析實戰教材 (BI Analytics Curriculum Case)</h4>
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
+              此雙軌對帳與智能路由機制，是介紹企業如何運用 <strong>BI (商業智慧) 進行大數據分析</strong>的絕佳教材。它具體展示了如何分析「呼叫異常分佈」、「API 延遲分佈 (P50/P90/P95)」、「單頁模型性價比分析」等指標，實現以數據驅動營運決策的實務範例。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Deliverable 5: Business Model Canvas (商業模式圖) -->
+      <section id="tab-bmc" class="content-section">
+        <div class="header-wrapper">
+          <span class="section-tag">Platform Economics</span>
+          <h2 class="section-title">FALO AI Runtime 商業模式圖</h2>
+          <p class="section-desc">這不只是一個 OCR 工具，這是一個具備強大商業模式的基礎 Runtime 平台。請點擊各區塊查看詳細商業策略：</p>
+        </div>
+
+        <div class="bmc-grid">
+          <!-- 1. Key Partners -->
+          <div class="bmc-cell double-height" data-cell="partners">
+            <div class="bmc-header">
+              <h4>關鍵合作夥伴</h4>
+            </div>
+            <div class="bmc-body">
+              <ul>
+                <li>底層 AI 巨頭 (Google, MS)</li>
+                <li>ERP & Workflow 系統整合商</li>
+                <li>HITL 人工審核外包網絡</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 2. Key Activities -->
+          <div class="bmc-cell" data-cell="activities">
+            <div class="bmc-header">
+              <h4>關鍵活動</h4>
+            </div>
+            <div class="bmc-body">
+              <ul>
+                <li>路由算法調優與分類器升級</li>
+                <li>多模型 API 插件管理</li>
+                <li>內外帳同步與自動退款稽核</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 3. Value Propositions -->
+          <div class="bmc-cell double-height double-width" data-cell="propositions" style="border-color: rgba(6, 182, 212, 0.4); background: rgba(6, 182, 212, 0.03);">
+            <div class="bmc-header">
+              <h4 style="color: var(--cyan); font-weight: 800;">價值主張</h4>
+            </div>
+            <div class="bmc-body" style="font-size: 13px;">
+              <ul>
+                <li><strong>AI 能力治理核心</strong>: 單一介面對接所有 API</li>
+                <li><strong>極致性價比 (FinOps)</strong>: 精準路由省錢 60%</li>
+                <li><strong>工作流自動化整合</strong>: 銜接 ERP 與會計流</li>
+                <li><strong>企業長期知識庫 (KM)</strong>: 沉澱文件資產</li>
+                <li><strong>對帳完全透明化</strong>: AI 自動退款稽核與偵錯</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 4. Customer Relationships -->
+          <div class="bmc-cell" data-cell="relations">
+            <div class="bmc-header">
+              <h4>顧客關係</h4>
+            </div>
+            <div class="bmc-body">
+              <ul>
+                <li>對帳全透明化報表</li>
+                <li>主動式 FinOps 節費建議</li>
+                <li>合規稽核軌跡安全防護</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 5. Customer Segments -->
+          <div class="bmc-cell double-height" data-cell="segments">
+            <div class="bmc-header">
+              <h4>目標客群</h4>
+            </div>
+            <div class="bmc-body">
+              <ul>
+                <li>中小型企業 (SME) </li>
+                <li>尋求內嵌 AI 能力的軟體商 (ISVs)</li>
+                <li>大量流程需自動化之金融/製造業</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 6. Key Resources -->
+          <div class="bmc-cell" data-cell="resources">
+            <div class="bmc-header">
+              <h4>關鍵資源</h4>
+            </div>
+            <div class="bmc-body">
+              <ul>
+                <li>動態路由調度專利</li>
+                <li>大宗 API 採購之折讓通道</li>
+                <li>FALO Runtime 安全沙盒</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 7. Channels -->
+          <div class="bmc-cell" data-cell="channels">
+            <div class="bmc-header">
+              <h4>通路渠道</h4>
+            </div>
+            <div class="bmc-body">
+              <ul>
+                <li>FALO Prompt Manager 內建</li>
+                <li>能力卡應用商城 (Store)</li>
+                <li>ERP / Google App Script 插件</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 8. Cost Structure (double width) -->
+          <div class="bmc-cell double-width" data-cell="costs">
+            <div class="bmc-header">
+              <h4>成本結構</h4>
+            </div>
+            <div class="bmc-body">
+              <ul>
+                <li>底層 API 呼叫費 (Google, Azure...)</li>
+                <li>Runtime Gateway 託管與資料庫成本</li>
+                <li>人工覆核人員單筆處理佣金</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 9. Revenue Streams (double width) -->
+          <div class="bmc-cell double-width" data-cell="revenues" style="border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.03);">
+            <div class="bmc-header">
+              <h4 style="color: var(--emerald);">收益來源</h4>
+            </div>
+            <div class="bmc-body">
+              <ul>
+                <li><strong>API 用量加成差價 (Markup)</strong></li>
+                <li><strong>自動對帳 / FinOps 治理進階 SaaS 月費</strong></li>
+                <li><strong>企業 KM & Workflow 整合模組授權費</strong></li>
+                <li><strong>第三方 Capability Card 上架佣金拆帳 (30%)</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detail Box for Business Model Canvas -->
+        <div class="glass-card" style="border-left: 4px solid var(--cyan);">
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;" id="bmc-details-title">商業策略深度解析</h3>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;" id="bmc-details-desc">
+            請點擊上方商業模式圖的任何區塊，此處將為您展示 FALO 在該維度的獨家護城河、商業操作模式與落地路徑。
+          </p>
+        </div>
+      </section>
+
+      <!-- Deliverable 6: Capability Card Architecture (Capability Card 架構圖) -->
+      <section id="tab-architecture" class="content-section">
+        <div class="header-wrapper">
+          <span class="section-tag">Software Architecture Stack</span>
+          <h2 class="section-title">Capability Card & Runtime 架構圖</h2>
+          <p class="section-desc">FALO 採用模組化疊層架構。OCR 僅是運行在 Runtime 上的第一張能力卡，下圖展示了三層核心架構：</p>
+        </div>
+
+        <div class="arch-container">
+          <!-- Layer 1: App Interface -->
+          <div class="arch-layer">
+            <div class="arch-layer-header">
+              <span>1. 應用接入與卡片層 (Application Interface & Card Layer)</span>
+              <span class="badge">SDK / Sandbox</span>
+            </div>
+            <div class="arch-blocks">
+              <div class="arch-block" data-block="sdk">FALO SDK / API Client</div>
+              <div class="arch-block" data-block="pwa">PWA Card Sandbox</div>
+            </div>
+          </div>
+
+          <!-- Layer 2: Governance Proxy -->
+          <div class="arch-layer" style="border-color: rgba(79, 70, 229, 0.3); background: rgba(79, 70, 229, 0.02);">
+            <div class="arch-layer-header" style="color: var(--primary-light);">
+              <span>2. AI Proxy 與流程治理核心 (Governance & Pipeline Core)</span>
+              <span class="badge" style="background: rgba(79, 70, 229, 0.2); color: var(--primary-light);">Runtime Engine</span>
+            </div>
+            <div class="arch-blocks">
+              <div class="arch-block active" data-block="gateway">API Gateway (安全與驗證)</div>
+              <div class="arch-block" data-block="logger">Ledger Syncer (內外雙帳同步)</div>
+              <div class="arch-block" data-block="router">Dynamic Provider Router (路由調度)</div>
+              <div class="arch-block" data-block="audit">FinOps & Audit Analytics</div>
+            </div>
+          </div>
+
+          <!-- Layer 3: Providers Execution -->
+          <div class="arch-layer">
+            <div class="arch-layer-header">
+              <span>3. AI Providers 與人工執行層 (Execution Layer)</span>
+              <span class="badge">Models & HITL</span>
+            </div>
+            <div class="arch-blocks">
+              <div class="arch-block" data-block="paddle">PaddleOCR Plugin (便宜)</div>
+              <div class="arch-block" data-block="gemini">Gemini V Plugin (大模型)</div>
+              <div class="arch-block" data-block="qwen">Qwen VL Plugin (亞洲語系)</div>
+              <div class="arch-block" data-block="human">Human-in-the-loop (人工覆核)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detail Box for Architecture Layers -->
+        <div class="glass-card" style="margin-top: 24px; border-left: 4px solid var(--primary);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <h3 style="font-size: 16px; font-weight: 700;" id="arch-details-title">API Gateway (安全與驗證)</h3>
+            <span class="badge-tech" id="arch-details-badge">AI Proxy 治理核心</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;" id="arch-details-desc">
+            處理 API 金鑰驗證、流量限額控制 (Rate Limiting)、防禦性 Audit 審計、以及統一的資料格式轉換（確保輸出標準的 JSON 格式）。
+          </p>
+        </div>
+      </section>
+
+      <!-- Deliverable 7: OCR Gate Evolution Roadmap (OCR Gate 演進路線圖) -->
+      <section id="tab-roadmap" class="content-section">
+        <div class="header-wrapper">
+          <span class="section-tag">Evolutionary Roadmap</span>
+          <h2 class="section-title">AI Runtime 與數據治理演進路線圖</h2>
+          <p class="section-desc">從最初的單機工具，演進至具備自動對帳與 FinOps 成本治理的完整 FALO AI 流程與知識生態平台。</p>
+        </div>
+
+        <div class="timeline">
+          <!-- Phase 1 -->
+          <div class="timeline-item completed">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Phase 1: PoC 驗證期</div>
+              <h3>FALO OCR Workbench (工具屬性)</h3>
+              <p>完成單機版 PWA 容器、基礎 OCR 模板配置與 CSV 閉環匯出入，確認使用者能方便操作圖片資料轉換。</p>
+              <ul class="timeline-details">
+                <li>單機 `ocr.html` 與 PWA 安裝支援</li>
+                <li>五組內建 OCR Operation Prompts</li>
+                <li>Excel 式 CSV 全覆蓋導入導出</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Phase 2 -->
+          <div class="timeline-item">
+            <div class="timeline-marker" style="border-color: var(--cyan);"></div>
+            <div class="timeline-content">
+              <div class="timeline-date" style="color: var(--cyan);">Phase 2: 服務化與雙軌帳本 (當前里程碑)</div>
+              <h3>AI Proxy Gate & 雙軌帳本</h3>
+              <p>導入 API 金鑰驗證，建構雙軌 ledger 寫入機制，將客戶使用端（內帳）與雲端 Provider（外帳）解耦，支援 AI 進行對帳審核與失敗重送路由。</p>
+              <ul class="timeline-details">
+                <li>AI Proxy Gateway 搭建與 API Key 認證</li>
+                <li>內外雙軌 Ledger 同步寫入引擎</li>
+                <li>AI 自動對帳模組 (偵測超時、超收、退款存檔)</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Phase 3 -->
+          <div class="timeline-item">
+            <div class="timeline-marker" style="border-color: var(--purple);"></div>
+            <div class="timeline-content">
+              <div class="timeline-date" style="color: var(--purple);">Phase 3: 工作流與 ERP 整合期</div>
+              <h3>流程調度與自動化入帳</h3>
+              <p>完善數據價值鏈。將結構化資料自動回寫入 ERP 系統，建立自動化單據核銷 workflow，並將歷史辨識文字儲存進企業知識庫。</p>
+              <ul class="timeline-details">
+                <li>結合 ERP/會計軟體的數據回寫接口</li>
+                <li>企業知識管理 (KM) 基礎儲存引擎</li>
+                <li>自動核銷與流程審核 Workflow 整合</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Phase 4 -->
+          <div class="timeline-item">
+            <div class="timeline-marker" style="border-color: var(--emerald);"></div>
+            <div class="timeline-content">
+              <div class="timeline-date" style="color: var(--emerald);">Phase 4: 全能力 Runtime 生態系</div>
+              <h3>FALO AI Runtime & KM Market</h3>
+              <p>擴展至多樣化能力卡（Vision, 翻譯, 語音, LLM），開放第三方上架，建構 Workflow × Governance × KM 的企業 AI 生態大腦。</p>
+              <ul class="timeline-details">
+                <li>標準能力卡 SDK 與 Runtime 規範釋出</li>
+                <li>多種 Capability Card 上架 (Speech, Audit)</li>
+                <li>第三方 Capability Market 分成與訂閱結算機制</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
